@@ -5,6 +5,7 @@
 # define GREEN "\x1b[1m\x1b[38;2;0;128;0m"
 # define YELLOW "\x1b[1m\x1b[38;2;205;205;0m"
 # define DV "\x1b[1m\x1b[38;2;148;0;211m"
+# define C "\x1b[0m"
 
 int main(void) {
 	Array<int> a(5);
@@ -70,5 +71,5 @@ int main(void) {
 	std::cout << MB "b: " GREEN;
 	for (unsigned int i = 0; i < b.size(); i++)
 		std::cout << b[i] << " ";
-	std::cout << std::endl;
+	std::cout << C << std::endl;
 }
