@@ -7,11 +7,18 @@
 # define DV "\x1b[1m\x1b[38;2;148;0;211m"
 # define C "\x1b[0m"
 
+void print(Array<int> arr){
+	for (unsigned int i = 0; i < arr.size(); i++)
+		std::cout << arr[i] << " ";
+	std::cout << std::endl;
+}
+
 int main(void) {
 	Array<int> a(5);
 	Array<int> b(5);
-	Array<int> c;
+	Array<char> d;
 
+	std::cout << MB "d.size(): " GREEN << d.size() << std::endl;
 	std::cout << MB "a.size(): " GREEN << a.size() << std::endl;
 
 	for (unsigned int i = 0; i < a.size(); i++) {
@@ -20,40 +27,30 @@ int main(void) {
 	}
 
 	std::cout << MB "a: " GREEN;
-	for (unsigned int i = 0; i < a.size(); i++)
-		std::cout << a[i] << " ";
-	std::cout << std::endl;
-
+	print(a);
 	std::cout << MB "b: " GREEN;
-	for (unsigned int i = 0; i < b.size(); i++)
-		std::cout << b[i] << " ";
-	std::cout << std::endl;
+	print(b);
 
-	std::cout << DV "a = b" << std::endl;
+	std::cout << DV "a = b, c(a)" << std::endl;
 	a = b;
 
+	Array<int> c(a);
+	std::cout << MB "c: " GREEN;
+	print(c);
 	std::cout << MB "a: " GREEN;
-	for (unsigned int i = 0; i < a.size(); i++)
-		std::cout << a[i] << " ";
-	std::cout << std::endl;
-
+	print(a);
 	std::cout << MB "b: " GREEN;
-	for (unsigned int i = 0; i < b.size(); i++)
-		std::cout << b[i] << " ";
-	std::cout << std::endl;
+	print(b);
 
 	std::cout << DV "a[0] = 19" << std::endl;
 	a[0] = 19;
 
+	std::cout << MB "c: " GREEN;
+	print(c);
 	std::cout << MB "a: " GREEN;
-	for (unsigned int i = 0; i < a.size(); i++)
-		std::cout << a[i] << " ";
-	std::cout << std::endl;
-
-	std::cout << MB "B: " GREEN;
-	for (unsigned int i = 0; i < b.size(); i++)
-		std::cout << b[i] << " ";
-	std::cout << std::endl;
+	print(a);
+	std::cout << MB "b: " GREEN;
+	print(b);
 
 	std::cout << DV "a[5] = 19" << std::endl;
 	try {
@@ -64,12 +61,7 @@ int main(void) {
 	}
 
 	std::cout << MB "a: " GREEN;
-	for (unsigned int i = 0; i < a.size(); i++)
-		std::cout << a[i] << " ";
-	std::cout << std::endl;
-
+	print(a);
 	std::cout << MB "b: " GREEN;
-	for (unsigned int i = 0; i < b.size(); i++)
-		std::cout << b[i] << " ";
-	std::cout << C << std::endl;
+	print(b);
 }
